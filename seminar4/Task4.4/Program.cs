@@ -3,55 +3,11 @@
 
 Console.Clear();
 
-void FillArray(int[] collection)
+int[] array = new int[8];
+
+for (int i=0; i<array.Length;i++)
 {
-    int lenght = collection.Length;
-    int i = 0;
-    while (i < lenght)
-    {
-        collection[i] = new Random().Next(0, 2);
-        i++;
-    }
+    array[i]= new Random().Next(0,2);
 }
 
-void PrintArray(int[] array)
-{
-    int count = array.Length;
-    for (int i = 0; i < count; i++)
-    {
-        System.Console.Write($"{array[i]} ");
-    }
-    System.Console.WriteLine();
-}
-
-int InputNumber(string message)
-{
-    int number;
-    while (true)
-    {
-        System.Console.Write(message);
-        if (!(int.TryParse(Console.ReadLine(), out number)))
-        {
-            System.Console.WriteLine("Введено некорректное число, попробуйте еще раз.");
-        }
-        else 
-        {
-            if (number < 0)
-            {
-                System.Console.WriteLine("Введено некорректное число, попробуйте еще раз.");
-            }
-            else
-            {
-                break;
-            }
-
-        }
-    }
-    return number;
-}
-
-int volum = InputNumber("Введите размер массива: ");
-int[] array = new int[volum];
-FillArray(array);
-System.Console.WriteLine("Массив:");
-PrintArray(array);
+System.Console.WriteLine("["+string.Join(", ",array)+"]");
